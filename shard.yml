@@ -1,9 +1,24 @@
 name: crystal-on-rails
 version: 0.1.7
 
+targets:
+  amethyst:
+    main: src/amethyst_cli.cr
+
 dependencies:
   html_builder:
     github: crystal-lang/html_builder
   mime:
     github: spalger/crystal-mime
     branch: master
+  cli:
+    github: mosop/cli
+  icr:
+    github: TechMagister/crystal-icr
+
+scripts:
+  postinstall: |
+    shards build
+    mkdir -p ../../bin
+    rm -f $(pwd)/../../bin/amethyst
+    ln -s $(pwd)/bin/amethyst $(pwd)/../../bin/amethyst
