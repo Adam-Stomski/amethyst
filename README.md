@@ -61,7 +61,6 @@ class HelloWorldApp < Base::App
   routes.draw do
     all "/",      "world#hello"
     get "/hello", "world#hello"
-    register WorldController
   end
 end
 

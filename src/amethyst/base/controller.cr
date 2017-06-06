@@ -14,6 +14,10 @@ module Amethyst
       include Sugar::View
       include Support::Sendable
 
+      macro inherited
+        Dispatch::Router.instance.register(self)
+      end
+
       class Formatter
         getter :processed
 
